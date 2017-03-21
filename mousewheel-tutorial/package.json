@@ -1,0 +1,33 @@
+{
+  "name": "mousewheel-tutorial",
+  "version": "1.0.0",
+  "description": "A webpack tutorial for importing jquery-mousewheel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AaronFlower/ijavascript.git"
+  },
+  "keywords": [
+    "webpack",
+    "jquery",
+    "mouse",
+    "wheel"
+  ],
+  "author": "AaronFlower",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AaronFlower/ijavascript/issues"
+  },
+  "homepage": "https://github.com/AaronFlower/ijavascript#readme",
+  "devDependencies": {
+    "imports-loader": "^0.7.1",
+    "webpack": "^2.2.1"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "jquery-mousewheel": "^3.1.13"
+  }
+}
