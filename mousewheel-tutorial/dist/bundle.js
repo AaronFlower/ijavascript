@@ -63,11 +63,25 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * 统一处理下 jquery, 将用的 jQuery 插件也加载起来，并给全局使用。
+ */
+var $ = __webpack_require__(2)
+var mousewheel = __webpack_require__(1)
+mousewheel($)
+module.exports = $
+
+
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*** IMPORTS FROM imports-loader ***/
@@ -82,7 +96,6 @@ var define = false;
  */
 
 (function (factory) {
-    debugger
     if ( typeof define === 'function' && define.amd ) {
         // AMD. Register as an anonymous module.
         define(['jquery'], factory);
@@ -299,10 +312,13 @@ var define = false;
 
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 2 */
+/***/ (function(module, exports) {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+/*** IMPORTS FROM imports-loader ***/
+var define = false;
+
+/*!
  * jQuery JavaScript Library v3.2.1
  * https://jquery.com/
  *
@@ -10514,11 +10530,10 @@ jQuery.nodeName = nodeName;
 // AMD loader is present. jQuery is a special case. For more information, see
 // https://github.com/jrburke/requirejs/wiki/Updating-existing-libraries#wiki-anon
 
-if ( true ) {
-	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {
+if ( typeof define === "function" && define.amd ) {
+	define( "jquery", [], function() {
 		return jQuery;
-	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} );
 }
 
 
@@ -10558,17 +10573,20 @@ return jQuery;
 } );
 
 
+
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-console.log([1, 2, 3, 4].map(e => e ** e))
-const $ = __webpack_require__(1)
-var mousewheel = __webpack_require__(0)
-mousewheel($)
+/* WEBPACK VAR INJECTION */(function($, jQ) {console.log([1, 2, 3, 4].map(e => e ** e))
+// const $ = require('jquery')
+console.log('log $:', $)
+console.log('jquery $:', jQ)
+// var mousewheel = require('imports-loader?define=>false!jquery-mousewheel')
 console.log($('#content-01').mousewheel(function (event) {
 	console.log('event:', event)
 }))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(0)))
 
 /***/ })
 /******/ ]);
